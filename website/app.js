@@ -1,3 +1,7 @@
+//Weather app API
+
+let websiteURL = 'http://api.openweathermap.org/data/2.5/forecast?zip=';
+const myAPI = '&appid=1f4eb02b39c57d53f2609e7c0fa5094e';
 /* Global Variables */
 
 let generateBTN = document.getElementById('generate');
@@ -6,10 +10,6 @@ let generateBTN = document.getElementById('generate');
 let d = new Date();
 let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 
-//Weather app API
-
-let websiteURL = 'http://api.openweathermap.org/data/2.5/forecast?zip=';
-let myAPI = '&appid=1f4eb02b39c57d53f2609e7c0fa5094e';
 
 
 generateBTN.addEventListener('click',(e)=>{
