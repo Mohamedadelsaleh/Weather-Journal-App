@@ -1,14 +1,14 @@
 //Weather app API
 
-let websiteURL = 'http://api.openweathermap.org/data/2.5/forecast?zip=';
-const myAPI = '&appid=1f4eb02b39c57d53f2609e7c0fa5094e';
+const websiteURL = 'https://api.openweathermap.org/data/2.5/weather?zip=';
+const myAPI = ',&appid=1f4eb02b39c57d53f2609e7c0fa5094e&units=imperial';
 /* Global Variables */
 
 let generateBTN = document.getElementById('generate');
 
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+let newDate = (d.getMonth()+1) + "." + d.getDate() + "." + d.getFullYear();
 
 
 
@@ -18,7 +18,7 @@ generateBTN.addEventListener('click',(e)=>{
     const userFeelings = document.getElementById('feelings').value;
     cloneWeatherData(websiteURL, zipCode, myAPI).then(
         (data)=>{
-            postData('/send',{date:d, temp:data.list[0].main.temp, content:userFeelings})
+            postData('/send',{date:newDate, temp:data.main.temp, content:userFeelings})
             .then(()=>{newUI()})
             .catch((err)=>{
                 console.log(error);
